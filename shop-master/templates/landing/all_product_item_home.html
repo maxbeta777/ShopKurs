@@ -6,7 +6,7 @@
             </a>
         </div>
 
-        {% if product_image.product.discount %}
+        {% if product_image.product.discount %} <!-- если у дискаунта есть значение то показать скидку -->
             <div class="discount-container">
                 <span>{{ product_image.product.discount }}%</span>
             </div>
@@ -17,7 +17,7 @@
             {{ product_image.product.description|truncatechars_html:70 }}
         </p>
         <div>
-            {{ product_image.product.price }} UAH
+            {{ product_image.product.price }} BYR
         </div>
         <div class="add-to-card-btn">
             <button class="btn btn-success">

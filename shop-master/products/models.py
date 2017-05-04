@@ -9,8 +9,8 @@ class ProductCategory(models.Model):
         return "%s" % self.name
 
     class Meta:
-        verbose_name = 'Категория товара'
-        verbose_name_plural = 'Категория товаров'
+        verbose_name = 'Вид товара'
+        verbose_name_plural = 'Вид товаров'
 
 
 class Product(models.Model):
@@ -44,5 +44,5 @@ class ProductImage(models.Model):
         return "%s" % self.id
 
     class Meta:
-        verbose_name = 'Фотография'
-        verbose_name_plural = 'Фотографии'
+        verbose_name = 'Изображение'
+        verbose_name_plural = 'Изображения'

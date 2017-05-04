@@ -34,8 +34,16 @@
                                 Доставка
                             </a>
                         </li>
-                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+                        <li role="presentation">
+                            <a href="#guarantee" aria-controls="messages" role="tab" data-toggle="tab">
+                                Гарантийные услуги
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#comments" aria-controls="settings" role="tab" data-toggle="tab">
+                                Отзывы
+                            </a>
+                        </li>
                       </ul>
 
                       <!-- Tab panes -->
@@ -44,13 +52,52 @@
                             {{ product.description }}
                         </div>
                         <div role="tabpanel" class="tab-pane" id="delivery">
-                            <h3>Как мы делаем доставку</h3>
+                            <h3>Доставка по Минску</h3>
+                            <p>Товар на сумму более 80 рублей доставляется по городу Минску и в пределах кольцевой
+                                автодороги БЕСПЛАТНО до Вашего дома.</p>
+                            <p>Время доставки Вы определяете сами, указав его либо в электронной форме заказа,
+                                либо указав его нашему менеджеру по телефону.</p>
+                            <p>Желаемое время доставки Вы указываете в электронной форме заказа,
+                                либо нашему менеджеру по телефону.</p>
+                            <p>Дополнительная плата взимается за:</p>
+                            <ul type="disc">
+                                <li>доставку товара стоимостью менее 80 рублей. Размер оплаты – 5 рублей;</li>
+                                <li>доставку за пределы кольцевой автодороги по тарифу 0,4 рублей за километр пробега
+                                    от кольцевой автодороги до указанного места. Пробег считается в обе стороны.</li>
+                            </ul>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="messages">...</div>
-                        <div role="tabpanel" class="tab-pane" id="settings">...</div>
+                        <div role="tabpanel" class="tab-pane" id="guarantee">
+                            <h3>Гарантийные обязательства</h3>
+                            <p>Уважаемые покупатели, пожалуйста, проверяйте внимательно покупку прежде,
+                            чем поставить подпись в гарантийном талоне. Убедитесь, что <b>заявленная комплектация</b>
+                            соответствует реальной, <b>внешний вид</b> товара Вас устраивает, и прибор <b>работает исправно</b> –
+                            подписью в талоне Вы подтверждаете, что <b>претензий к изделию не имеете.</b></p>
+                            <p><b>Проверить прибор</b> можно самому в присутствии представителя магазина (курьера или продавца),
+                            либо обратиться за помощью к этому представителю.</p>
+                            <p>Если Вы обнаружили <b>дефект или несоответствие</b> документации или комплектности, можно
+                            отказаться от покупки товара.</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="comments">...</div>
                       </div>
                 </div>
             </div>
+                <form id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}">{%csrf_token%} <!-- с этим тегом Django
+                автоматически создаст input с классом hidden в котором будет код нужный джанго для того чтобы нельзя
+                было делать Post запросы со сторонних сайтов -->
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="number" id="number">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" id="submit_btn" class="btn btn-success btn-buy"
+                            data-product_id = "{{ product.id }}"
+                            data-name = "{{ product.name }}"
+                            data-price = "{{ product.price }}"
+                        ><!-- data-атрибуты получают текстовые значения,
+                            поэтому нужно писать в кавычках. эти значения в scripts.js-->
+                            Добавить в корзину <!-- type="submit" - отправка формы-->
+                        </button>
+                    </div>
+                </form>
         </div>
     </div>
 {% endblock %}
