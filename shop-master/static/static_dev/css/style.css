@@ -62,7 +62,7 @@ html, body{
 .discount-container{
     position: absolute;
     top: 30%;
-    background: #55e073;
+    background: #55c2e0;
     width: 30%;
     color: white;
     font-weight: 700;
@@ -71,7 +71,7 @@ html, body{
 
 .section-delivery{
     height: 300px;
-    background-color: darkseagreen;
+    background-color: #55a5e0;
     text-align: center;
     color: white;
 }
@@ -84,13 +84,13 @@ html, body{
 .navbar-top{
     min-height: 10px;
     height: 20px;
-    background-color: green;
+    background-color: #006480;
     border: none;
     border-radius: 0;
 }
 
 .navbar-main{
-    background-color: #55e073;
+    background-color: #55dbe0;
     border: none;
     border-radius: 0;
 }
@@ -105,7 +105,43 @@ html, body{
     position: absolute;
     top: 50px;
     width: 100%;
-    background-color: #55e093;
+    background-color: #4cf1f7;
     z-index: 10;
     padding: 10px;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #5575ba;
+    border-color: #5575ba;
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #3a5389;
+    border-color: #3a5389;
+}
+
+.btn-success.focus, .btn-success:focus {
+    color: #fff;
+    background-color: #4665a7;
+    border-color: #252856;
+}
+
+.btn-success.active, .btn-success:active, .open>.dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: #456bbe;
+    border-color: #4055c5;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #5575ba;
+    border-color: #5575ba;
+}
+
+.btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open>.dropdown-toggle.btn-success.focus, .open>.dropdown-toggle.btn-success:focus, .open>.dropdown-toggle.btn-success:hover {
+    color: #fff;
+    background-color: #394384;
+    border-color: #252d56;
 }

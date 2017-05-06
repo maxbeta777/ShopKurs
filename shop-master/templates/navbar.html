@@ -34,14 +34,25 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               <div class="basket-container">
-                <a href="">Корзина<span id="basket_total_amount"></span><span id="basket_total_nmb"></span></a>
+                <a href="">Корзина <span id="basket_total_amount"></span><span id="basket_total_nmb">
+                  {% if products_total_nmb%}
+                    ({{products_total_nmb}})
+                  {% else%}
+                    (0)
+                  {% endif%}
+                </span></a>
                 <div class="basket-items hidden">
                   <ul class="">
+                    {% for product_in_basket in products_in_basket%}
+                      <li>{{product_in_basket.product.name}} {{product_in_basket.nmb}} шт. по {{product_in_basket.price_per_item}}руб</li>
                  <!--/   <li>bubu</li>   -->
+                    {% endfor%}
                   </ul>
+                  Добавить в заказ
                 </div>
               </div>
             </li>
+            <li><a href="../navbar/">Регистрация</a></li>
           </ul>
      <!--/ <ul class="nav navbar-nav navbar-right">
             <li><a href="../navbar/">Default</a></li>

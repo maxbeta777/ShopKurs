@@ -33,11 +33,18 @@ $(document).ready(function(){ //после загрузки документа �
                 console.log(data.products_total_nmb)
                 if (data.products_total_nmb){
                     $('#basket_total_nmb').text(" ("+data.products_total_nmb+")");
+                    console.log(data.products)
+                    $('.basket-items ul').html("");
+                    $.each(data.products, function(k, v){
+                        $('.basket-items ul').append('<li>'+v.product_name+', '+ v.nmb +'шт. по ' + v.product_price + 'руб '+
+                        '<a class="delete-item" href="">x</a>'+'</li>');
+                    })
                 }
          //       $('#likes_list').html();
          //       $.each(data, function (key, value) {
          //           $('#likes_list').append('<p>'+value.username+'</p>')
          //       });
+
             }, error: function(){
                 console.log("error")
             }
@@ -45,8 +52,7 @@ $(document).ready(function(){ //после загрузки документа �
 
 
 
-        $('.basket-items ul').append('<li>'+product_name+', '+ nmb +'шт. по ' + product_price + 'руб '+
-        '<a class="delete-item" href="">x</a>'+'</li>');
+
      });
 
      function showingBasket(){
@@ -63,9 +69,9 @@ $(document).ready(function(){ //после загрузки документа �
          showingBasket();
      })
 
-     //$('.basket-container').mouseout(function(){
-       //  showingBasket();
-     //});
+     $('.basket-container').mouseout(function(){
+         showingBasket();
+     });
 
      $(document).on('click','.delete-item', function(e){
         e.preventDefault();
